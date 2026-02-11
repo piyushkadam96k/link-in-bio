@@ -90,6 +90,15 @@ A modern React + Vite application for managing and sharing personalized link pro
 - [ ] **Data Migration**: No versioning system for data structure updates
 - [ ] **Bulk Operations**: No bulk edit or delete functionality
 
+# 1. Navigate to the project folder
+cd link-in-bio
+
+# 2. Install dependencies
+npm install
+
+# 3. Run the development server
+npm dev
+
 ## Next Steps for Improvement
 
 1. Set up TypeScript for type safety
