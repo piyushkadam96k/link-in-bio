@@ -1,0 +1,212 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+
+  /* Gen-Z / Neo-Brutalist Color Palette */
+  --color-neo-bg: #E0E7FF;
+  --color-neo-text: #000000;
+  --color-neo-white: #FFFFFF;
+  --color-neo-black: #000000;
+
+  --color-neo-primary: #FF3366;
+  /* Hot Pink */
+  --color-neo-secondary: #00FF94;
+  /* Acid Green */
+  --color-neo-accent: #3300FF;
+  /* Electric Blue */
+  --color-neo-yellow: #FFFF00;
+  /* Bright Yellow */
+  --color-neo-purple: #9D00FF;
+  /* Deep Purple */
+
+  --shadow-neo: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-neo-lg: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-neo-sm: 2px 2px 0px 0px rgba(0, 0, 0, 1);
+}
+
+@layer base {
+  body {
+    @apply antialiased text-gray-900 min-h-screen selection:bg-neo-primary selection:text-white;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--color-neo-bg);
+    background-image:
+      radial-gradient(#000000 1px, transparent 1px);
+    background-size: 24px 24px;
+    color: #000000;
+  }
+
+  .dark body {
+    background-color: #0f0f0f;
+    background-image:
+      radial-gradient(#333333 1px, transparent 1px);
+    color: #ffffff;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-black uppercase tracking-tight;
+  }
+
+  p,
+  span,
+  div,
+  label,
+  input,
+  button,
+  select,
+  textarea {
+    @apply font-bold;
+  }
+
+  /* Force all placeholders to be visible */
+  ::placeholder {
+    @apply text-gray-500 opacity-100;
+  }
+}
+
+@layer components {
+  .neo-card {
+    @apply bg-white border-2 border-black shadow-neo transition-all duration-200;
+  }
+
+  .neo-card:hover {
+    @apply translate-x-[-2px] translate-y-[-2px] shadow-neo-lg;
+  }
+
+  .neo-card:active {
+    @apply translate-x-[2px] translate-y-[2px] shadow-neo-sm;
+  }
+
+  .neo-button {
+    @apply px-6 py-3 font-bold text-black border-2 border-black shadow-neo hover:-translate-y-1 hover:shadow-neo-lg active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all duration-150 transform uppercase tracking-wider;
+  }
+
+  .neo-input {
+    @apply w-full px-4 py-3 bg-white border-2 border-black shadow-neo-sm focus:outline-none focus:shadow-neo transition-all duration-200 font-medium placeholder-gray-700 placeholder:opacity-100 text-black caret-black;
+  }
+
+  .neo-badge {
+    @apply inline-flex items-center px-3 py-1 border-2 border-black font-bold text-xs uppercase tracking-widest shadow-neo-sm;
+  }
+
+  /* Grid Patterns for Gen-Z Themes */
+  .bg-grid-white {
+    background-size: 40px 40px;
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  }
+
+  .bg-grid-black {
+    background-size: 40px 40px;
+    background-image:
+      linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+.animate-shake {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+
+/* Glass classes retained but redefined for neo-brutalism context or fallback */
+.glass {
+  @apply bg-white/90 backdrop-blur-md border-2 border-black shadow-neo;
+}
+
+.dark .glass {
+  @apply bg-black/90 backdrop-blur-md border-2 border-white/20 shadow-none;
+}
+
+/* Force animation on hover */
+/* Shake disabled for cleaner look (User Preference 1.2) */
+/* .neo-button:hover .icon-box {
+  animation: shake 0.5s infinite;
+} */
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-150%) skewX(-15deg);
+  }
+
+  100% {
+    transform: translateX(150%) skewX(-15deg);
+  }
+}
+
+.shimmer-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: translateX(-150%) skewX(-15deg);
+}
+
+.neo-button:hover .shimmer-overlay {
+  animation: shimmer 1.2s;
+}
+
+/* Brand Icons (Filled) - Force Fill to match text color on hover */
+.neo-button:hover svg:not(.lucide),
+.neo-button:hover svg:not(.lucide) path {
+  fill: currentColor !important;
+}
+
+/* Lucide Icons (Stroked) - Force Stroke to match text color on hover */
+.neo-button:hover svg.lucide {
+  stroke: currentColor !important;
+}
