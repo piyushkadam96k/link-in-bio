@@ -2,6 +2,8 @@
 
 A modern React + Vite application for managing and sharing personalized link profiles with customizable themes and branding.
 
+help to make it useful for everyone 
+
 ## Features
 
 ### User Management
