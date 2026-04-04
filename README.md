@@ -115,13 +115,6 @@ npm dev
 10. Create user documentation and tutorials
 
 ---
-
-<div align="center">
-
-### ✨ **Author** ✨
-
-# 🎨 **PIYUSH KADAM** 🎨
-
 ### *Building innovative web experiences with React & Modern Technologies*
 
 *Passionate Full-Stack Developer | UI/UX Enthusiast | Open Source Contributor*
